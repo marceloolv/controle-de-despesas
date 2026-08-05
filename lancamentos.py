@@ -11,10 +11,15 @@ def lancamentos():
 
         # Tipo
         while True:
-            tipo = input("Tipo (receita/despesa): ").strip().lower()
-            if tipo in ("receita", "despesa"):
+            tipo = input("Tipo => [R] receita ou [D] despesa): ").strip().lower()
+            if tipo in ("r", "d"):
+                if tipo == "r":
+                    tipo = "receita"
+                else:
+                    tipo = "despesa"
+
                 break
-            print("Erro: informe 'receita' ou 'despesa'.")
+            print("Erro: informe 'R >> receita' ou 'D >> despesa'.")
 
         # Categoria (Novo input adicionado para funcionar com a sua busca)
         categoria = input("Categoria (ex: salario, alimentacao, transporte): ").strip()
