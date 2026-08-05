@@ -2,7 +2,9 @@ from datetime import datetime
 
 
 def lancamentos():
-    lancamentos = []
+    # Mudei o nome da variável para não conflitar com o nome da função
+    lista_lancamentos = []
+    codigo_atual = 1  # Variável para gerar o código automático
 
     while True:
         print("\n=== Cadastro de Receitas e Despesas ===")
@@ -13,6 +15,9 @@ def lancamentos():
             if tipo in ("receita", "despesa"):
                 break
             print("Erro: informe 'receita' ou 'despesa'.")
+
+        # Categoria (Novo input adicionado para funcionar com a sua busca)
+        categoria = input("Categoria (ex: salario, alimentacao, transporte): ").strip()
 
         # Descrição
         descricao = input("Descrição: ").strip()
@@ -36,13 +41,18 @@ def lancamentos():
             except ValueError:
                 print("Erro: data inválida.")
 
-        # Armazena o lançamento
-        lancamentos.append({
+        # Armazena o lançamento (Atualizado com código e categoria)
+        lista_lancamentos.append({
+            "codigo": codigo_atual,
             "tipo": tipo,
+            "categoria": categoria,
             "descricao": descricao,
             "valor": valor,
             "data": data
         })
+
+        # Incrementa o código para a próxima movimentação
+        codigo_atual += 1
 
         # Continuar?
         continuar = input("\nDeseja cadastrar outro lançamento? (s/n): ").strip().lower()
@@ -55,10 +65,13 @@ def lancamentos():
     total_receitas = 0
     total_despesas = 0
 
-    for item in lancamentos:
+    for item in lista_lancamentos:
+        # Atualizei o print do resumo para mostrar o código e a categoria também
         print(
+            f"Cód: {item['codigo']:<3} | "
             f"{item['data']} | "
             f"{item['tipo'].capitalize():8} | "
+            f"{item['categoria'].capitalize():12} | "
             f"{item['descricao']:20} | "
             f"R$ {item['valor']:.2f}"
         )
@@ -76,6 +89,10 @@ def lancamentos():
     print(f"Despesas: R$ {total_despesas:.2f}")
     print(f"Saldo:    R$ {saldo:.2f}")
 
+    # É bom retornar a lista para que o menu principal ou o seu arquivo consulta.py possa usá-la
+    return lista_lancamentos
 
-# Executa a função
-lancamento()
+
+# Executa a função (Corrigido para lancamentos())
+if __name__ == "__main__":
+    lancamentos()
