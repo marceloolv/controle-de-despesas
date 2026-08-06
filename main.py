@@ -1,6 +1,6 @@
 import menu
 import lancamentos
-
+import orcamentos
 
 def iniciar_sistema():
     while True:
@@ -13,7 +13,7 @@ def iniciar_sistema():
             pass
 
         elif opcao == "3":
-            pass
+            orcamentos.executar()
 
         elif opcao == "4":
             pass
