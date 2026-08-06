@@ -84,21 +84,3 @@ def menu_consulta(lancamentos):
         else:
             print("Opção inválida! Tente novamente.")
 
-#
-# # ==============================================================================
-# # ÁREA DE TESTE (Você pode remover isso quando for juntar com o código principal)
-# # ==============================================================================
-# if __name__ == "__main__":
-#     # Dados fictícios com os novos campos (codigo e categoria) para você testar
-#     dados_teste = [
-#         {"codigo": 1, "tipo": "receita", "categoria": "salario", "descricao": "Salario da empresa", "valor": 3500.00,
-#          "data": "05/10/2023"},
-#         {"codigo": 2, "tipo": "despesa", "categoria": "alimentacao", "descricao": "Almoco no shopping", "valor": 45.50,
-#          "data": "06/10/2023"},
-#         {"codigo": 3, "tipo": "despesa", "categoria": "transporte", "descricao": "Uber para o trabalho", "valor": 15.00,
-#          "data": "07/10/2023"},
-#         {"codigo": 4, "tipo": "receita", "categoria": "freelance", "descricao": "Projeto de frontend", "valor": 800.00,
-#          "data": "10/10/2023"}
-#     ]
-#
-#     menu_consulta(dados_teste)
