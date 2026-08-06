@@ -11,10 +11,15 @@ def lancamentos():
 
         # Tipo
         while True:
-            tipo = input("Tipo (receita/despesa): ").strip().lower()
-            if tipo in ("receita", "despesa"):
+            tipo = input("Tipo => [R] receita ou [D] despesa): ").strip().lower()
+            if tipo in ("r", "d"):
+                if tipo == "r":
+                    tipo = "receita"
+                else:
+                    tipo = "despesa"
+
                 break
-            print("Erro: informe 'receita' ou 'despesa'.")
+            print("Erro: informe 'R para Receita' ou 'D para Despesa'.")
 
         # Categoria (Novo input adicionado para funcionar com a sua busca)
         categoria = input("Categoria (ex: salario, alimentacao, transporte): ").strip()
@@ -28,7 +33,7 @@ def lancamentos():
                 valor = float(input("Valor: R$ ").replace(",", "."))
                 if valor > 0:
                     break
-                print("Erro: o valor deve ser maior que zero.")
+                print("Erro: O valor deve ser maior que zero.")
             except ValueError:
                 print("Erro: informe um valor numérico válido.")
 
@@ -93,6 +98,3 @@ def lancamentos():
     return lista_lancamentos
 
 
-# Executa a função (Corrigido para lancamentos())
-if __name__ == "__main__":
-    lancamentos()
