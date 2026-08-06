@@ -28,7 +28,7 @@ def lancamentos():
                 valor = float(input("Valor: R$ ").replace(",", "."))
                 if valor > 0:
                     break
-                print("Erro: o valor deve ser maior que zero.")
+                print("Erro: O valor deve ser maior que zero.")
             except ValueError:
                 print("Erro: informe um valor numérico válido.")
 
@@ -83,4 +83,4 @@ def lancamentos():
 
 
 # Executa a função
-#lancamentos()
+# lancamentos()
