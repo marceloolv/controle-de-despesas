@@ -17,7 +17,7 @@ def lancamentos():
                     tipo = "despesa"
 
                 break
-            print("Erro: informe 'R >> receita' ou 'D >> despesa'.")
+            print("Erro: informe 'R para Receita' ou 'D para Despesa'.")
 
         # Descrição
         descricao = input("Descrição: ").strip()
