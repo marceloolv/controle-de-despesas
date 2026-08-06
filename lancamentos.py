@@ -19,7 +19,7 @@ def lancamentos():
                     tipo = "despesa"
 
                 break
-            print("Erro: informe 'R >> receita' ou 'D >> despesa'.")
+            print("Erro: informe 'R para Receita' ou 'D para Despesa'.")
 
         # Categoria (Novo input adicionado para funcionar com a sua busca)
         categoria = input("Categoria (ex: salario, alimentacao, transporte): ").strip()
