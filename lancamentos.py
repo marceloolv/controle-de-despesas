@@ -83,4 +83,4 @@ def lancamentos():
 
 
 # Executa a função
-lancamentos()
+#lancamentos()
