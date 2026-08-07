@@ -58,7 +58,7 @@ def filtrar_movimentacoes(lancamentos):
 
     exibir_tabela(resultados)
 
-
+# função de menu interno ao selecionar opção de consulta no menu principal
 def menu_consulta(lancamentos):
     """Menu principal do módulo de consultas."""
     while True:
