@@ -9,6 +9,11 @@ import relatorios
 def iniciar_sistema():
     lista_lancamentos = []
     dicionario_orcamentos = {}
+import consultas
+
+def iniciar_sistema():
+
+    lista_geral = []
 
     while True:
         opcao = menu.exibir_menu()
@@ -25,6 +30,11 @@ def iniciar_sistema():
         elif opcao == "2":
             # Módulo de Consultas
             consultas.menu_consulta(lista_lancamentos)
+            novos_dados = lancamentos.lancamentos()
+            lista_geral.extend(novos_dados)
+
+        elif opcao == "2":
+            consultas.menu_consulta(lista_geral)
 
         elif opcao == "3":
             # Módulo de Orçamentos
@@ -44,7 +54,6 @@ def iniciar_sistema():
 
         else:
             print("\nOpção inválida! Tente novamente.")
-
 
 if __name__ == "__main__":
     iniciar_sistema()
