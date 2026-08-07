@@ -1,3 +1,5 @@
+from datetime import datetime
+
 def lancamentos():
     # Mudei o nome da variável para não conflitar com o nome da função
     lista_lancamentos = []
@@ -96,3 +98,5 @@ def lancamentos():
 
     # É bom retornar a lista para que o menu principal ou o seu arquivo consulta.py possa usá-la
     return lista_lancamentos
+
+lancamentos()
