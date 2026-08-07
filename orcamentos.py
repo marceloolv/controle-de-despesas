@@ -1,4 +1,39 @@
+import edicao
 
+def executar():
+    orcamentos = {}
+    lancamentos = []
+
+    while True:
+        print("\n" + "=" * 36)
+        print("          ORÇAMENTOS")
+        print("=" * 36)
+        print("1 - Definir limite por categoria")
+        print("2 - Comparar gastos com limite")
+        print("3 - Editar o Orçamento")
+        print("4 - Remover o Orçamento")
+        print("0 - Voltar")
+        print("=" * 36)
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            definir_limite_categoria(orcamentos)
+
+        elif opcao == "2":
+            comparar_gastos_com_limite(lancamentos, orcamentos)
+
+        elif opcao == "3":
+            edicao.editar_lancamento()
+
+        elif opcao == "4":
+            edicao.remover_lancamento()
+
+        elif opcao == "0":
+            break
+
+        else:
+            print("Opção inválida!")
 
 def definir_limite_categoria(orcamentos):
     print("\n=== Definir Limite por Categoria ===")
