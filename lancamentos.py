@@ -1,6 +1,3 @@
-from datetime import datetime
-
-
 def lancamentos():
     # Mudei o nome da variável para não conflitar com o nome da função
     lista_lancamentos = []
@@ -11,7 +8,7 @@ def lancamentos():
 
         # Tipo
         while True:
-            tipo = input("Tipo => [R] receita ou [D] despesa): ").strip().lower()
+            tipo = input("Tipo => [R] Receita, [D] Despesa  [S] Sair): ").strip().lower()
             if tipo in ("r", "d"):
                 if tipo == "r":
                     tipo = "receita"
@@ -19,7 +16,10 @@ def lancamentos():
                     tipo = "despesa"
 
                 break
-            print("Erro: informe 'R para Receita' ou 'D para Despesa'.")
+            if tipo == "s":
+                return lista_lancamentos
+
+            print("Erro: informe [R] para Receita, [D] para Despesa ou [S] para Sair.")
 
         # Categoria (Novo input adicionado para funcionar com a sua busca)
         categoria = input("Categoria (ex: salario, alimentacao, transporte): ").strip()
@@ -96,5 +96,3 @@ def lancamentos():
 
     # É bom retornar a lista para que o menu principal ou o seu arquivo consulta.py possa usá-la
     return lista_lancamentos
-
-
