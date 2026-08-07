@@ -7,45 +7,31 @@ import relatorios
 
 
 def iniciar_sistema():
+    # Estruturas centralizadas mantidas na memória
     lista_lancamentos = []
     dicionario_orcamentos = {}
-import consultas
-
-def iniciar_sistema():
-
-    lista_geral = []
 
     while True:
         opcao = menu.exibir_menu()
 
         if opcao == "1":
-            # Cadastra novos lançamentos e guarda na lista geral
-            novos = lancamentos.lancamentos()
-            if novos:
-                # Evita duplicar se a função retornar a lista completa
-                for item in novos:
-                    if item not in lista_lancamentos:
-                        lista_lancamentos.append(item)
+            # 1. Cadastrar Lançamentos
+            lancamentos.lancamentos(lista_lancamentos)
 
         elif opcao == "2":
-            # Módulo de Consultas
+            # 2. Consultas
             consultas.menu_consulta(lista_lancamentos)
-            novos_dados = lancamentos.lancamentos()
-            lista_geral.extend(novos_dados)
-
-        elif opcao == "2":
-            consultas.menu_consulta(lista_geral)
 
         elif opcao == "3":
-            # Módulo de Orçamentos
+            # 3. Orçamentos e Limites
             orcamentos.executar(lista_lancamentos, dicionario_orcamentos)
 
         elif opcao == "4":
-            # Módulo de Edição e Remoção
+            # 4. Editar ou Remover Lançamentos
             edicao.executar(lista_lancamentos)
 
         elif opcao == "5":
-            # Módulo de Relatórios
+            # 5. Relatório Financeiro
             relatorios.executar(lista_lancamentos)
 
         elif opcao == "0":
@@ -54,6 +40,7 @@ def iniciar_sistema():
 
         else:
             print("\nOpção inválida! Tente novamente.")
+
 
 if __name__ == "__main__":
     iniciar_sistema()

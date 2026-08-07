@@ -1,39 +1,24 @@
-import edicao
-
-def executar():
-    orcamentos = {}
-    lancamentos = []
-
+def executar(lancamentos, orcamentos):
     while True:
         print("\n" + "=" * 36)
         print("          ORÇAMENTOS")
         print("=" * 36)
         print("1 - Definir limite por categoria")
         print("2 - Comparar gastos com limite")
-        print("3 - Editar o Orçamento")
-        print("4 - Remover o Orçamento")
         print("0 - Voltar")
         print("=" * 36)
 
-        opcao = input("Escolha uma opção: ")
+        opcao = input("Escolha uma opção: ").strip()
 
         if opcao == "1":
             definir_limite_categoria(orcamentos)
-
         elif opcao == "2":
             comparar_gastos_com_limite(lancamentos, orcamentos)
-
-        elif opcao == "3":
-            edicao.editar_lancamento()
-
-        elif opcao == "4":
-            edicao.remover_lancamento()
-
         elif opcao == "0":
             break
-
         else:
             print("Opção inválida!")
+
 
 def definir_limite_categoria(orcamentos):
     print("\n=== Definir Limite por Categoria ===")
@@ -63,14 +48,12 @@ def comparar_gastos_com_limite(lancamentos, orcamentos):
         print("Nenhum orçamento cadastrado até o momento.")
         return
 
-    # Soma acumulada dos gastos (apenas despesas) por categoria
     gastos_categoria = {}
     for item in lancamentos:
         if item.get("tipo") == "despesa":
             cat = item.get("categoria", "geral").lower()
             gastos_categoria[cat] = gastos_categoria.get(cat, 0.0) + item["valor"]
 
-    # Exibição do comparativo
     for cat, limite in orcamentos.items():
         gasto = gastos_categoria.get(cat, 0.0)
         porcentagem = (gasto / limite) * 100 if limite > 0 else 0
@@ -82,4 +65,5 @@ def comparar_gastos_com_limite(lancamentos, orcamentos):
             status = "ALERTA (>= 80%)"
 
         print(
-            f"Categoria: {cat.capitalize():12} | Gasto: R$ {gasto:8.2f} / R$ {limite:8.2f} ({porcentagem:5.1f}%) | Status: {status}")
+            f"Categoria: {cat.capitalize():12} | Gasto: R$ {gasto:8.2f} / R$ {limite:8.2f} ({porcentagem:5.1f}%) | Status: {status}"
+        )
