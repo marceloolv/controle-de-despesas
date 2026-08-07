@@ -1,3 +1,26 @@
+def executar(lancamentos):
+
+    while True:
+        print("\n" + "=" * 36)
+        print("     EDIÇÃO E REMOÇÃO DE LANÇAMENTOS")
+        print("=" * 36)
+        print("1 - Editar lançamento")
+        print("2 - Remover lançamento")
+        print("0 - Voltar")
+        print("=" * 36)
+
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == "1":
+            editar_lancamento(lancamentos)
+        elif opcao == "2":
+            remover_lancamento(lancamentos)
+        elif opcao == "0":
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
+
+
 def editar_lancamento(lancamentos):
     if not lancamentos:
         print("\nNenhum lançamento cadastrado para editar.")
@@ -6,8 +29,7 @@ def editar_lancamento(lancamentos):
     print("\n=== Editar Lançamento ===")
     for i, item in enumerate(lancamentos, 1):
         cat = item.get("categoria", "geral")
-        print(
-            f"{i}. {item['data']} | {item['tipo'].capitalize()} | {item['descricao']} | R$ {item['valor']:.2f} | Categoria: {cat}")
+        print(f"{i}. {item['data']} | {item['tipo'].capitalize()} | {item['descricao']} | R$ {item['valor']:.2f} | Categoria: {cat}")
 
     try:
         indice = int(input("\nInforme o número do lançamento a editar: ")) - 1
