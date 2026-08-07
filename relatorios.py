@@ -1,8 +1,3 @@
-"""Módulo de Relatórios Financeiros.
-
-Gera estatísticas consolidadas e alertas sobre receitas, despesas e saldo.
-"""
-
 def gerar_relatorio(lancamentos: list) -> None:
     """Exibe um relatório financeiro geral com totais, maiores gastos e alertas.
 
@@ -100,43 +95,3 @@ def executar(lancamentos: list) -> None:
         lancamentos (list): Lista geral de lançamentos.
     """
     gerar_relatorio(lancamentos)
-
-
-# Área de teste individual do módulo
-if __name__ == "__main__":
-    dados_teste = [
-        {
-            "codigo": 1,
-            "tipo": "receita",
-            "categoria": "salário",
-            "descricao": "Salário",
-            "valor": 3500.0,
-            "data": "01/10/2023",
-        },
-        {
-            "codigo": 2,
-            "tipo": "despesa",
-            "categoria": "alimentação",
-            "descricao": "Supermercado",
-            "valor": 800.0,
-            "data": "03/10/2023",
-        },
-        {
-            "codigo": 3,
-            "tipo": "despesa",
-            "categoria": "transporte",
-            "descricao": "Combustível",
-            "valor": 300.0,
-            "data": "05/10/2023",
-        },
-        {
-            "codigo": 4,
-            "tipo": "despesa",
-            "categoria": "alimentação",
-            "descricao": "Restaurante",
-            "valor": 450.0,
-            "data": "08/10/2023",
-        },
-    ]
-
-    executar(dados_teste)
